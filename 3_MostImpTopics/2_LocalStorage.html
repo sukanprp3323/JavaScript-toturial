@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #setItem {
+        background-color: aqua;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    #GetItem {
+        background-color: rgb(81, 255, 0);
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    #RemoveItem {
+        background-color: rgb(255, 69, 246);
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    #allButtons {
+        /* display: grid; */
+        width: 20%;
+        /* background-color: springgreen; */
+    }
+</style>
+
+<body>
+    <div id="allButtons">
+        <button id="setItem">set Item = Store Item In LocalStorage</button>
+        <p id="showData"></p>
+        <button id="GetItem">get Item = Access Item In LocalStorage</button>
+        <button id="RemoveItem">Remove Item = Remove Item From Storage</button>
+    </div>
+
+
+    <script>
+        let showData = document.querySelector("p")
+        const StudentBioData = {
+            firstName: "Sukan",
+            lastName: "Prajapati",
+            age: 20,
+            gender: "Male",
+            Grade: "A",
+            course: ["Math", "science", "English"],
+            address: {
+                street: "prajapatiVas",
+                village: "Chaloda",
+                City: "Ahmedabad",
+                zipCode: 382260
+            },
+        };
+
+        let setItemLocalStorage = () => {
+            // localStorage.setItem("Studentdata",StudentBioData)
+            localStorage.setItem("StudentData", JSON.stringify(StudentBioData)) // use of StringiFy = converts Object data into string data
+            // console.log(StudentBioData);
+
+        }
+
+        let getItemLocalStorage = () => {
+            let StringToObject = JSON.parse(localStorage.getItem("StudentData"))// use parse for convert string data to Object Data.
+            console.log(StringToObject);
+            // showData.innerHTML = StringToObject // returns object object because html dont show object
+
+        }
+
+        let DeleteItemLocalStorage = () => {
+            localStorage.removeItem("StudentData")
+        }
+
+        //Store data in Local storage
+        document.getElementById("setItem").addEventListener("click", () => {
+            setItemLocalStorage()
+        })
+
+        // Get the Stored data 
+        document.getElementById("GetItem").addEventListener("click", () => {
+            getItemLocalStorage()
+        })
+
+        // Delete the Stored Data
+        document.getElementById("RemoveItem").addEventListener("click", () => {
+            DeleteItemLocalStorage()
+        })
+    </script>
+</body>
+
+</html>

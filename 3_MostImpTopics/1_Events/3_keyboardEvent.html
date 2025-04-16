@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(3, 24, 14);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .KeyEvent {
+        color: aliceblue;
+        font-size: large;
+        margin-right: 125px;
+    }
+
+    .output {
+        background-color: rgb(6, 44, 26);
+        width: 200%;
+        color: yellow;
+        border-radius: 10px;
+        border-left: 4px solid white;
+    }
+
+    .output p {
+        padding: 15px;
+    }
+
+    .KeyEvent #findKey {
+        width: 200%;
+        height: 50px;
+        border-radius: 10px;
+        font-size: large;
+        margin-bottom: 20px;
+        background-color: white;
+    }
+</style>
+
+<body>
+    <div class="KeyEvent">
+        <h1>KeyBoard Events</h1>
+        <input type="text" id="findKey" placeholder="Enter any latters">
+        <div class="output">
+            <p class="whichKey">Which Key : </p>
+            <p class="keyCode">Key Code : </p>
+            <p class="CharCode">Char CodeAt :</p>
+            <p class="eventType">Event Type : </p>
+        </div>
+    </div>
+    <script>
+        //get the Refrence of Input
+        let addText = document.getElementById("findKey")
+        let whichKey = document.querySelector(".whichKey")
+        let keyCode = document.querySelector(".keyCode")
+        let CharCode = document.querySelector(".CharCode")
+        let eventType = document.querySelector(".eventType")
+
+        // make the function where user writes any letter
+        let checkKey = (event) => {
+            // console.log("key Name :",event.key);
+            // console.log("key code :",event.code);
+            // console.log("key charCode :",event.charCode);
+            // console.log("Type :",event.type);
+            // console.log(event);
+            
+            whichKey.textContent = `Which Key : ${event.key}`
+            keyCode.textContent = `Key Code : ${event.code}`
+            CharCode.textContent = `Char CodeAt : ${event.key.charCodeAt(0)}`
+            eventType.textContent = `Event Type : ${event.type}`
+        };
+
+        addText.addEventListener("keydown", checkKey)
+    </script>
+</body>
+
+</html>

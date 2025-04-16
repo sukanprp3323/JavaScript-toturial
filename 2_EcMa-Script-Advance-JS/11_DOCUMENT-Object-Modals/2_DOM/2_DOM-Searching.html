@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1 id="heading">DOM API</h1>
+        <ul class="list-of--nodes">
+            <li>1 node</li>
+            <li>2 node</li>
+            <li>3 node</li>
+            <li>4 node</li>
+            <!-- <ll>6 node</ll> -->
+            <li style="display: none;">5 Node</li>
+        </ul>
+    </div>
+    <script>
+        // getElementbyID() 
+
+        // let findElementbyID = document.getElementById("heading");
+        // console.log(findElementbyID);
+        // console.log(findElementbyID.innerHTML);
+        // console.log(findElementbyID.innerText);
+        // console.log(findElementbyID.textContent);
+        // ============================================================================================
+        
+        // getElementByClassName()
+
+        // let findElementByClassName = document.getElementsByClassName("list-of--nodes")
+
+        // for (elem of findElementByClassName) {
+
+        //     console.log(elem.innerHTML);
+        //     console.log(elem.innerText);
+        //     console.log(elem.textContent);
+        // }
+
+        // =============================================================================================
+
+        // getElementByTagName()
+
+        // let findElementByTagName = document.getElementsByTagName("li")
+        // console.log(findElementByTagName);
+
+        // for(elem of findElementByTagName){
+        //     console.log(elem);
+            // console.log(elem.innerText);
+            // console.log(elem.innerHTML);
+            // console.log(elem.textContent);
+        // }
+
+        // =============================================================================================
+
+        //getElementByQuerySelector()
+
+        // let usingQuerySelector = document.querySelector("#heading")
+        // console.log(usingQuerySelector.innerText = "changed Text using innerHTML");
+        
+        // =============================================================================================
+
+        // querySelectorAll()
+
+        let usingQuerySelectorAll = document.querySelectorAll("li")
+
+        usingQuerySelectorAll.forEach((curElem)=>{
+
+            console.log(curElem);
+        })
+        
+    </script>
+</body>
+
+</html>

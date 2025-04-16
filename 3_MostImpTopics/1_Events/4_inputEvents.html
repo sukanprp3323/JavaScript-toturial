@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        body {
+            background-color: rgb(7, 0, 88);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .KeyEvent {
+            color: aliceblue;
+            font-size: large;
+            width: 100%;
+            /* margin-right: 125px; */
+        }
+
+        .output {
+            background-color: rgb(15, 20, 117);
+            width: 50%;
+            display: inline-block;
+            color: yellow;
+            border-radius: 10px;
+            border-left: 4px solid white;
+            min-width: 500px;
+            max-width: 90%;
+            overflow-wrap: break-word;
+
+        }
+
+        .output p {
+            padding: 15px;
+        }
+
+        .KeyEvent #findKey {
+            width: 50%;
+            height: 50px;
+            border-radius: 10px;
+            font-size: large;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+
+        h1 {
+            color: rgb(221, 200, 20);
+        }
+    </style>
+
+    <body>
+        <h1>Input Events</h1>
+        <div class="KeyEvent">
+            <input type="text" id="findKey" placeholder="Enter any latters" name="userName" autocomplete="off">
+            <div class="output">
+                <p class="inputValue">Input Value : </p>
+                <p class="inputName">Input Name : </p>
+                <p class="inputType">Input Type :</p>
+                <p class="eventType">Event Type : </p>
+            </div>
+        </div>
+    </body>
+    <script>
+        let addText = document.getElementById("findKey");
+
+        let checkInputType = (event) => {
+            // console.log(event);
+            // console.log(event.target.value);
+            // console.log(event.target.name);
+            // console.log(event.inputType);
+            // console.log(event.type);
+            
+            document.querySelector(".inputValue").innerHTML = `Input Value : ${event.target.value}`
+            document.querySelector(".inputName").innerHTML = `Input Name : ${event.target.name}`
+            document.querySelector(".inputType").innerHTML = `Input Type : ${event.inputType}`
+            document.querySelector(".eventType").innerHTML = `Event Type : ${event.type}`
+        }
+
+        addText.addEventListener("input", checkInputType)
+    </script>
+
+    </html>
+</body>
+
+</html>

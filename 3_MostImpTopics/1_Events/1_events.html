@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(25, 24, 24);
+        color: rgb(138, 228, 255);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .inlineEvents {
+        letter-spacing: 50px;
+    }
+
+    h1 {
+        margin-top: 40px;
+    }
+
+    .inlineEvents button {
+        background-color: rgb(238, 238, 104);
+        font-size: 20px;
+        border-radius: 50px;
+        padding: 10px 20px;
+    }
+
+    button:hover {
+        background-color: rgb(25, 24, 24);
+        color: aliceblue;
+        border: 2px solid rgb(238, 238, 104);
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <!--! start inline Event -->
+    <h1>inline Events</h1>
+    <div class="inlineEvents">
+        <button onclick="alert('inline event called')">onclick</button>
+        <button ondblclick="alert('double click called')">ON DBL click</button>
+        <button onmouseover="alert('double click called')">ON Mouse Over</button>
+    </div>
+    <!--! End inline Event -->
+
+    <!--! Start DOM handler  -->
+    <h1>Dom Event Handeler</h1>
+    <div class="inlineEvents">
+        <button id="UsingDOMmethod">DOM alert</button>
+        <button id="UsingDOMmethod1">DOM alert onmouseover </button>
+    </div>
+    <!--! End DOM handler  -->
+
+    <h1>AddEventListener Event Handler</h1>
+    <div class="inlineEvents">
+        <button id="Eventlist">AddEventListenr Alert</button>
+        <button id="Eventlist1">AddEventListener onmouseover</button>
+    </div>
+
+    <script>
+        //dom Event handler
+        document.getElementById("UsingDOMmethod").onclick = () => {
+            alert("used DOM method for alert")
+        } 
+
+        document.getElementById("UsingDOMmethod1").onmouseover =()=>{
+            alert("used DOM method mouseOver using")
+        }
+
+        // AddEventListener
+
+        document.getElementById("Eventlist").addEventListener("click",()=>{
+            alert("AddEventListener called")
+        })
+
+        document.getElementById("Eventlist1").addEventListener("mouseenter",()=>{
+            alert("AddEventListener with Mouse Enter")
+        })
+    </script>
+</body>
+
+</html>
