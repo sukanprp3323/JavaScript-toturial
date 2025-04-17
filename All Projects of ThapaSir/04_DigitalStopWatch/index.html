@@ -116,16 +116,22 @@
         let StartCount = 0;
         let IntervalID;
 
+        //Start Time function
+
         const startTimer = () => {
             IntervalID = setInterval(() => {
                 CountDownElement.innerText = StartCount++
             }, 1000)
         }
+        
+        //Stop Time Function    
 
         const stopTimer = () => {
             getTime()
             clearInterval(IntervalID)
         }
+
+        //reset Time Function
 
         const resetTimer = () => {
             stopTimer()
@@ -133,11 +139,15 @@
             CountDownElement.innerText = StartCount
         }
 
+        //get Time function
+
         const getTime = () => {
             const newPara = document.createElement("p")
             newPara.innerHTML = `The Stop Time is ${StartCount-1}`
             History.append(newPara)
         }
+
+        //Clear Time Function
 
         const clearHistory = () => {
                 History.innerHTML = ""
