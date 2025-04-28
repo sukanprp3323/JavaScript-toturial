@@ -15,3 +15,4 @@ const Student1 = {
 }
 
 console.log(Student1.greeting());
+
