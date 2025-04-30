@@ -20,5 +20,3 @@ console.log(JsonData);
 
 let StringToObj = JSON.parse(JsonData)
 console.log(StringToObj);
-
-

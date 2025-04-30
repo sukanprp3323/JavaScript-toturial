@@ -30,7 +30,7 @@ console.log(makeArray);
 //! 4. hasownproperty():
 //? very simple just find the property from any Object
 
-let hasOwnProperty = product.hasOwnProperty("name")
-let hasOwnProperty1 = product.hasOwnProperty("age")
+let hasOwnProperty = product.hasOwnProperty("name");
+let hasOwnProperty1 = product.hasOwnProperty("age");
 console.log(hasOwnProperty);
 console.log(hasOwnProperty1);
