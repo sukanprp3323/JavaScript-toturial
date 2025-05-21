@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        color: #fff;
+        font-size: 50%;
+    }
+
+    body {
+        height: 100vh;
+        background-color: #06107f;
+        font-family: "Urbanist", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .CountDown {
+        font-size: 10vh;
+    }
+
+    p,
+    li,
+    button {
+        font-size: 2rem;
+        letter-spacing: 0.4rem;
+        font-family: sans-serif;
+        line-height: 1.1;
+    }
+
+    button {
+        background-color: #f5ee62;
+        padding: 0.3rem 2rem;
+        border-radius: 10rem;
+        margin-right: 3rem;
+        cursor: pointer;
+        transition: all 0.3s linear;
+
+        &:hover {
+            box-shadow: inset 0 0 0 0.2rem #f5ee62;
+            background-color: transparent;
+            color: #f5ee62;
+        }
+    }
+
+    section {
+        width: 45rem;
+        height: 70rem;
+        background-color: #4453f9;
+        text-align: center;
+        padding: 2rem;
+        border-radius: 2rem;
+        box-shadow: -5px 0px 20px #000000, -5px 10px 20px #000000;
+    }
+
+    p {
+        color: #18e80d;
+        font-size: 7rem;
+    }
+
+    .buttons {
+        width: 100%;
+        height: 120px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 2.4rem;
+    }
+
+    button {
+        background-color: #fff;
+        margin: 0;
+        border: none;
+        margin-bottom: 1rem;
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .history p {
+        font-size: 2.8rem;
+        margin-top: 0.6rem;
+        color: #000000;
+        font-weight: 550;
+    }
+
+    /* .btnDiv .buttons{
+        
+    } */
+</style>
+
+<body>
+    <section>
+        <p class="CountDown">0</p>
+        <div class="buttons">
+            <button id="start">Start</button>
+            <button id="reset">Reset</button>
+            <button id="stop">Stop</button>
+            <button id="getTime">GetTime</button>
+            <button id="clearHistory">ClearHistory</button>
+        </div>        
+        <div class="history"></div>
+    </section>
+    <script>
+        const CountDownElement = document.querySelector(".CountDown");
+        const History = document.querySelector(".history");
+        let StartCount = 0;
+        let IntervalID;
+
+        //Start Time function
+
+        const startTimer = () => {
+            IntervalID = setInterval(() => {
+                CountDownElement.innerText = StartCount++
+            }, 1000)
+        }
+        
+        //Stop Time Function    
+
+        const stopTimer = () => {
+            getTime()
+            clearInterval(IntervalID)
+        }
+
+        //reset Time Function
+
+        const resetTimer = () => {
+            stopTimer()
+            StartCount = 0;
+            CountDownElement.innerText = StartCount
+        }
+
+        //get Time function
+
+        const getTime = () => {
+            const newPara = document.createElement("p")
+            newPara.innerHTML = `The Stop Time is ${StartCount-1}`
+            History.append(newPara)
+        }
+
+        //Clear Time Function
+
+        const clearHistory = () => {
+                History.innerHTML = ""
+        }
+
+        document.querySelector("#start").addEventListener("click", startTimer)
+        document.querySelector("#reset").addEventListener("click", resetTimer)
+        document.querySelector("#stop").addEventListener("click", stopTimer)
+        document.querySelector("#getTime").addEventListener("click", getTime)
+        document.querySelector("#clearHistory").addEventListener("click", clearHistory)
+    </script>
+</body>
+
+</html>

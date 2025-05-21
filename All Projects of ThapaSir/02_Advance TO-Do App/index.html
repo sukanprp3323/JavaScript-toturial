@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:wght@100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: "Roboto Condensed", sans-serif;
+            /* background-image: url(spring_waterfall_stone_fog_mist_green_forest_4k_hd_nature.jpg); */
+            background-color: rgb(36, 36, 36);
+            background-size: cover;
+            background-blend-mode: blur(4px);
+            background-repeat: no-repeat;
+            /* background-position: ; */
+            margin: 0;
+            padding: 0;
+        }
+
+        .MainDiv {
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.297);
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(255, 255, 255);
+            border-bottom: 2px solid rgb(255, 255, 255);
+            letter-spacing: 3px;
+            padding-bottom: 10px;
+        }
+
+        #innerDiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: -20px;
+            flex-wrap: wrap;
+        }
+
+        #innerDiv input {
+            border-radius: 4px;
+            border: none;
+            width: 60%;
+            font-size: 15px;
+            height: 30px;
+            padding: 5px;
+        }
+
+        #innerDiv button {
+            font-size: 100%;
+            background-color: greenyellow;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+        }
+
+        .print {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .MainTodoDiv {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-weight: 400;
+            color: white;
+            font-size: 22px;
+            margin-top: 15px;
+            word-break: break-word;
+            padding: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .Delete {
+            font-size: 80%;
+            background-color: rgb(255, 0, 0);
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            #innerDiv input {
+                width: 70%;
+            }
+
+            #innerDiv button {
+                width: 25%;
+            }
+
+            .taskDiv {
+                flex-direction: column;
+                text-align: left;
+            }
+        }
+    </style>
+
+<body>
+    <div class="overlay"></div>
+    <form>
+
+        <h1>To-Do List</h1>
+        <section class="MainDiv">
+            <div id="innerDiv">
+                <input type="text" placeholder="Add your tasks">
+                <button id="btn">Add Todo</button>
+            </div>
+            <section class="print">
+                <!-- <div class="taskDiv">
+                        <li>add your task hesdsadsare</li>
+                        <button class="Delete">Delete</button>
+                    </div> -->
+            </section>
+        </section>
+    </form>
+
+    <script>
+        const Text = document.querySelector("input")
+        // const btn = document.getElementById("btn")
+        const PrintTodo = document.querySelector(".print")
+        // const addTodoTask = () => {
+
+        //     let CreateList = document.createElement("li");
+        //     PrintTodo.append(CreateList)
+        //     CreateList.innerHTML = Text.value
+        //     Text.innerHTML = ""
+        // }
+        // btn.addEventListener("click", () => {
+        //     addTodoTask()
+        // })
+
+        // another Logic...
+        // let localTodoArr = []
+
+        // let getDataFromLocal = () => {
+        //     return JSON.parse(localStorage.getItem("TodoProjectData"))
+        // }
+
+        // const addTodoList = (e) => {
+        //     e.preventDefault()
+
+        //     const trimmedTODO = Text.value.trim();
+        //     localTodoArr = getDataFromLocal() || []
+
+        //     localTodoArr.push(trimmedTODO)
+        //     localTodoArr = [...new Set(localTodoArr)]
+
+        //     localStorage.setItem("TodoProjectData", JSON.stringify(localTodoArr))
+        //     console.log(localTodoArr);
+
+
+        //     let addDiv = document.createElement("div")
+        //     addDiv.classList.add("taskDiv")
+        //     PrintTodo.append(addDiv)
+        //     addDiv.innerHTML = `<li>${Text.value}</li> <button class="Delete">Delete</button>`
+        //     Text.value = ""
+
+        // }
+
+        // document.querySelector("#btn").addEventListener("click", (e) => {
+        //     addTodoList(e)
+        // })
+
+
+        //creating function for Getting todo list from local storage to print in DivElement
+
+        let getDataFromLocal = () => {
+            return JSON.parse(localStorage.getItem("TodoProjectData"))
+        }
+
+        const addTodoListUpdated = (localTodoArr) => {
+            return localStorage.setItem("TodoProjectData", JSON.stringify(localTodoArr))
+        }
+
+        let localTodoArr = getDataFromLocal() || [];
+
+        const printOnebyOne = (curElem) => {
+            const DivElem = document.createElement("div")
+            DivElem.classList.add("MainTodoDiv")
+            DivElem.innerHTML = `<li>${curElem}</li> <button class="Delete"> Delete </button>`
+            PrintTodo.append(DivElem)
+        }
+
+        // creating function for Add TODO button to add TODO tasks
+        let addTodoList = (e) => {
+            e.preventDefault()
+            //Removing front and back space
+            let trimmedValue = Text.value.trim();
+
+            Text.value = ""
+
+            //adding item into blank array using push
+            if (trimmedValue !== "" && !localTodoArr.includes(trimmedValue)) {
+
+                localTodoArr.push(trimmedValue)
+                localTodoArr = [...new Set(localTodoArr)]
+                // console.log(localTodoArr);
+
+                //storing item on local storage
+                localStorage.setItem("TodoProjectData", JSON.stringify(localTodoArr))
+
+
+                printOnebyOne(trimmedValue)
+            }
+        }
+
+        let showTODO = () => {
+
+            localTodoArr.forEach((curElem) => {
+                printOnebyOne(curElem)
+            })
+        }
+
+        showTODO()
+
+        let DeleteElements = (e) => {
+            // console.log(e.target);
+            let todoToremove = e.target;
+            let todoListConent = todoToremove.previousElementSibling.innerText;
+            const DeleteElement = todoToremove.parentElement;
+
+            localTodoArr = localTodoArr.filter((curTodo) => {
+                return curTodo !== todoListConent.toLowerCase();
+            })
+
+            addTodoListUpdated(localTodoArr)
+            DeleteElement.remove()
+            console.log(localTodoArr);
+        }
+
+        PrintTodo.addEventListener("click", (e) => {
+            e.preventDefault()
+            if (e.target.classList.contains("Delete")) {
+                DeleteElements(e)
+            }
+        })
+
+        document.querySelector("#btn").addEventListener("click", (e) => {
+            addTodoList(e);
+        })
+    </script>
+</body>
+
+</html>

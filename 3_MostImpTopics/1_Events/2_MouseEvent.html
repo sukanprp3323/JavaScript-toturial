@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    section {
+        text-align: center;
+    }
+
+    .Rectangle {
+        background-color: #000;
+        width: 15rem;
+        height: 15rem;
+        margin-bottom: 3rem;
+        border-radius: 0.5rem;
+        transition: all 0.4s linear;
+        box-shadow: rgb(0, 0, 0) 0px 10px 20px;
+    }
+
+    .addTransition {
+        border-radius: 50%;
+    }
+
+    .MoveLeft {
+        translate: -15rem 0;
+        border-radius: 50%;
+        background-color: blue;
+    }
+
+    .MouseLeave {
+        translate: 15rem 0;
+    }
+
+    .Normal{
+        translate: 0rem 0;
+        border-radius: 0;
+    }
+</style>
+
+<body>
+    <section>
+        <div class="Rectangle"></div>
+        <button id="btn">Mouse Events</button>
+    </section>
+
+    <script>
+        let Rectangle = document.querySelector(".Rectangle")
+        let btn = document.getElementById("btn");
+
+        let changeColor = () => {
+            Rectangle.style.backgroundColor = "blue"
+        }
+
+        let DblClkRadius = () => {
+            Rectangle.classList.add("addTransition")
+        }
+
+        let hoverMouse = () => { //mouseOver works when move on the div  
+            Rectangle.style.backgroundColor = "orange"
+        }
+
+        let TranslateLeft = () => {
+            Rectangle.classList.add("MoveLeft")
+        }
+
+        let TranslateRight = () => {
+            Rectangle.classList.add("MouseLeave")
+        }
+
+        let Normal = () => {
+            Rectangle.classList.add("Normal")
+            Rectangle.style.backgroundColor = "black"
+        }
+
+        btn.addEventListener("click", () => {
+            changeColor()
+        })
+        btn.addEventListener("dblclick", () => {
+            DblClkRadius()
+        })
+
+        Rectangle.addEventListener("mouseover", () => {
+            TranslateLeft()
+        })
+
+        Rectangle.addEventListener("mouseleave", () => {
+            TranslateRight()
+        })
+        Rectangle.addEventListener("mouseup",()=>{
+            Normal()
+        })
+    </script>
+</body>
+
+</html>

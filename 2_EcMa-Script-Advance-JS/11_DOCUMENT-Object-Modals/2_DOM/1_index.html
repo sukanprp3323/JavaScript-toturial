@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Best js Course</h1>
+    <hr>
+    <p>understanding the dom tree structure</p>
+    <p>It's easy, helps Js to Communicate with HTML</p>
+
+    <!--! Lets see DOM Navigation -->
+    <script>
+        let Parent = document;
+        let BodyElmnt = document.body;
+        let HeadElmnt = document.head;
+  
+        // let BodyChild = BodyElmnt.childNodes
+        // let BodyChild = BodyElmnt.childNodes
+        let firstChild = BodyElmnt.firstElementChild
+        // let LastChild = BodyElmnt.lastElementChild
+        let nextSibilling = firstChild.nextElementSibling
+        let PreviousSibilling = nextSibilling.previousElementSibling
+        console.log(PreviousSibilling);
+        
+    </script>
+</body>
+</html>

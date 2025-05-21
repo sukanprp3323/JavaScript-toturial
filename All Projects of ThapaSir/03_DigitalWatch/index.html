@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body {
+        background-color: rgb(8, 16, 5);
+    }
+
+    .container {
+        /* background-color: red; */
+        width: 95%;
+        max-width: 550px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainClock {
+        width: 42rem;
+        background-color: #26373f;
+        padding: 10px 10px;
+        border-radius: 10px;
+        border: 2px solid #f5ee62;
+        box-shadow: rgba(222, 238, 42, 0.1) 0px 4px 6px;
+        position: relative;
+    }
+
+    .mainClock::after {
+        content: " ";
+        position: absolute;
+        bottom: -15px;
+        left: 51%;
+        width: 60%;
+        height: 15px;
+        background-color: #f5ee62;
+        transform: translate(-50%, 0);
+        border-radius: 3px 3px 8px 8px;
+    }
+
+    .mainClock::before {
+        content: " ";
+        position: absolute;
+        width: 110%;
+        height: 10px;
+        background-color: #f5ea4b77;
+        bottom: -25px;
+        left: -5%;
+        border-radius: 100%;
+        filter: blur(5px);
+    }
+
+    .timeHolder {
+        display: flex;
+        align-items: center;
+        gap: .2rem;
+    }
+
+    .timeIcons {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 1rem;
+        color: aliceblue;
+        /* font-size: large; */
+    }
+
+    .mainDiv {
+        width: 100%;
+        margin: -45px -10px;
+        text-align: center;
+    }
+
+    #clock {
+        font-size: 3.8rem;
+        color: #f20852;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="mainClock">
+            <div class="timeHolder">
+                <div class="timeIcons">
+                    <i class="fa-solid fa-clock"></i>
+                    <i class="fa-solid fa-stopwatch"></i>
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div class="mainDiv">
+                    <p id="clock"></p>
+                </div>  
+            </div>
+        </div>
+        <script>
+            let curTime = () => {
+                let time = new Date().toLocaleTimeString("en-us", { hour12: true });
+                document.querySelector("#clock").innerText = time
+            }
+
+            setInterval(curTime, 1000);
+        </script>
+</body>
+
+</html>

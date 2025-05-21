@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: aquamarine;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container .deleteELem button {
+        opacity: 0;
+    }
+
+    .container {
+        position: absolute;
+        top: 20%;
+    }
+
+    .container .print {
+        text-align: left;
+    }
+
+    .print:hover {
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Simple DOM ToDo App</h1>
+        <input type="text" id="EnterTask">
+        <button class="btn">Add Task</button>
+        <div class="print">
+        </div>
+        <div class="deleteELem">
+            <button>
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>  
+    </div>
+    <script>
+        const Task = document.getElementById("EnterTask")
+        const btn = document.querySelector(".btn")
+        const Print = document.querySelector(".print")
+
+        let addTodo = () => {
+            // console.log(Task.value)
+            // Print.innerHTML = Task.value
+            let CreatePtag = document.createElement("p")
+            
+            Print.append(CreatePtag)
+            CreatePtag.innerText = Task.value
+            Task.value = ""
+        }
+
+        btn.addEventListener("click", () => {
+            addTodo()
+        })
+
+        Print.addEventListener("click", (event) => {
+            // console.log(event.target);
+            // Print.removeChild(event.target)
+            let RemoveElem = event.target
+            RemoveElem.remove()
+        })
+    </script>
+</body>
+
+</html>
