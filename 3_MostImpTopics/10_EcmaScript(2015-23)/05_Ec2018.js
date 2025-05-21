@@ -33,7 +33,9 @@ console.log(others);
 const Obj1 = { a: 10, b: 20, c: 30 };
 const Obj2 = { c: 40, d: 50 };
 
-const MergeData = {...Obj1,...Obj2}
+const MergeData = { ...Obj1, ...Obj2 }
 
 console.log(MergeData);
 //? Here what happned that the value of C is over written after OBJ 2 data is called it mean C:30 is goes to the backsite and stands in-place of C:40
+
+console.log(MergeData)
