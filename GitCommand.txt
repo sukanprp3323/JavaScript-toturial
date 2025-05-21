@@ -1,6 +1,3 @@
-git init
 git add .
-git commit -m "initial commit"
-git remote add origin https://github.com/sukanprp3323/JavaScript-toturial.git
-git branch -m main
-git push -u origin main
+git commit -m "update"
+git push
