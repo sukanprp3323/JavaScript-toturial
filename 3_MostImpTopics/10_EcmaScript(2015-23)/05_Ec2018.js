@@ -39,4 +39,3 @@ console.log(MergeData);
 //? Here what happned that the value of C is over written after OBJ 2 data is called it mean C:30 is goes to the backsite and stands in-place of C:40
 
 console.log(MergeData)
-console.log(MergeData)
