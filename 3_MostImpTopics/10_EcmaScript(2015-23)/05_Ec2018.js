@@ -27,6 +27,8 @@ const StudentData = {
 
 const { age, ...others } = StudentData
 console.log(others);
+console.log(StudentData);
+console.log(age );
 
 //! Object with Spread Operator :
 
