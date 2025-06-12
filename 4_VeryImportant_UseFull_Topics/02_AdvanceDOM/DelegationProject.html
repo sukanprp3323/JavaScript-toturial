@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(32, 31, 31);
+        }
+
+        h1 {
+            color: aliceblue;
+            text-align: center;
+            margin-bottom: 3.2rem;
+        }
+
+        .mainBody {
+            gap: 3.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .styleElement {
+            color: aliceblue;
+            width: 5rem;
+            height: 5rem;
+            margin: 5px;
+            border: 1px solid #d6417a;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.3rem;
+            box-shadow: rgba(133, 23, 23, 0.40) 0px 6px 24px 0px,
+                rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        }
+
+        .styleElement:hover {
+            background-color: #d6417a;
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event Delegation - Pereodic Table</h1>
+    <section class="mainBody"></section>
+    <script>
+        //function to createPeriodicTable element
+        const createPeriodicElement = (symbol, atomicNum, name) => {
+            const elements = document.createElement("div")
+            elements.classList.add("styleElement");
+            elements.innerHTML = symbol;
+
+            elements.setAttribute("data-atomic-number", atomicNum);
+            elements.setAttribute("data-element-name", name);
+
+            return elements;
+        }
+        //creting Handle click means function who make the alert box and display which  element is clicked
+
+        const handleElemClick = (event) => {
+            const target = event.target;
+
+            if (target.classList.contains("styleElement")) {
+                const atomicNum = target.getAttribute("data-atomic-number")
+                const elementName = target.getAttribute("data-element-name");
+                alert(`Atomic Number = ${atomicNum}\nElementName = ${elementName}`)
+            }
+        }
+
+        function initializePeridoicTable() {
+            const mainBody = document.querySelector(".mainBody")
+
+            // Creating 50 Periodic table elements
+
+            for (let i = 1; i <= 50; i++) {
+                const elements = createPeriodicElement(`Elem${i}`, `${i}`, `Element${i}`);
+                mainBody.append(elements)
+            }
+
+            mainBody.addEventListener("click", handleElemClick)
+        }
+
+        initializePeridoicTable()
+    </script>
+</body>
+
+</html>

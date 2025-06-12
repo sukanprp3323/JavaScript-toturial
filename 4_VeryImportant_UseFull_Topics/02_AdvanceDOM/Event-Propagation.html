@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mainDiv {
+            width: 25%;
+            height: 70%;
+            position: absolute;
+            top: 20%;
+            left: 40%;
+            font-size: x-large;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .mainDiv #outer {
+            text-align: justify;
+            background-color: rgb(218, 220, 217);
+            width: 100%;
+            height: 50%;
+            border: 2px solid black;
+        }
+
+        .mainDiv #outer:hover {
+            background-color: rgb(34, 255, 0);
+        }
+
+
+        .mainDiv #outer #middle {
+            background-color: rgb(218, 220, 217);
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            width: 50%;
+            height: 30%;
+            border: 2px solid black;
+        }
+
+        .mainDiv #outer #middle:hover {
+            background-color: rgb(0, 94, 255);
+        }
+
+        .mainDiv #outer #middle #inner {
+            background-color: rgb(218, 220, 217);
+            position: absolute;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            top: 25%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+            border: 2px solid black;
+        }
+
+        .mainDiv #outer #middle #inner:hover {
+            background-color: rgb(255, 49, 241);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="mainDiv">
+
+        <div id="outer">
+            Outer
+            <div id="middle">
+                middle
+                <div id="inner">
+                    Inner
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        const callOuter = (event) => {
+            console.table([
+                {
+                    Description: "this is Outer Grand Parent Div",
+                    Target: event.target,
+                    CurrentTarget: event.currentTarget,
+                },
+            ])
+        }
+
+        const callMiddle = (event) => {
+            console.table([
+                {
+                    Description: "this is Parent Div",
+                    Target: event.target,
+                    CurrentTarget: event.currentTarget,
+                },
+            ])
+        }
+
+        const callInner = (event) => {
+            console.table([
+                {
+                    Description: "this is inner Div",
+                    Target: event.target,
+                    CurrentTarget: event.currentTarget,
+                },
+            ])
+            // event.stopPropagation();
+        }
+
+        //? bubbling Phase :    
+        // document.getElementById("outer").addEventListener("click", callOuter)
+        // document.getElementById("middle").addEventListener("click", callMiddle)
+        // document.getElementById("inner").addEventListener("click", callInner)
+
+        //? Capturing Phase : 
+        document.getElementById("outer").addEventListener("click", callOuter, true)
+        document.getElementById("middle").addEventListener("click", callMiddle, true)
+        document.getElementById("inner").addEventListener("click", callInner, true)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #393636;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #myList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #myList li {
+            padding: 10px;
+            border: 1px solid #a9a8a8;
+            margin: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #myList li:hover {
+            transform: scale(1.1);
+            background-color: #d5d2d2;
+            color: #333;
+        }
+
+        #listValue {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #f5ee62;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Which programming Language You like the most ?</p>
+    <br />
+    <ul id="myList">
+        <li>💻JavaScript💻</li>
+        <li>🎈React🎈</li>
+        <li>🎉Next JS🎉</li>
+        <li>🎁HTML/CSS🎁</li>
+    </ul>
+    <p id="listValue"></p>
+
+    <script>
+        const getListDetails = (event) => {
+            console.log(event.target);
+
+            const listItem = event.target;
+            listItem.style.transform = "rotateY(360deg)";
+            setTimeout(() => {
+                listItem.style.transform = "rotateY(360deg)";
+            }, 500);
+            document.getElementById("listValue").innerText = `My Fav Language is : ${listItem.innerText}`;
+        }
+
+        document.getElementById("myList").addEventListener("click", getListDetails)
+    </script>
+</body>
+
+</html>
