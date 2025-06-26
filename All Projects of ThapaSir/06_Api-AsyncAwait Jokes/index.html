@@ -122,28 +122,19 @@
         const Api_URL = "https://icanhazdadjoke.com/"
         const apiBody = document.querySelector(".api_body");
 
-        const showNewJoke = () => {
-            const response = fetch(Api_URL, {
+        async function showNewJoke() {
+            const res = await fetch(Api_URL, {
                 headers: {
-                    Accept: "application/json",
-                },
-            })
-                .then((res) => {
-                    console.log(res);
-                    return res.json()
-                })
-                .then((data) => {
-                    console.log(data.joke);
-                    apiBody.innerHTML = data.joke + "🤣🤣🤣"
-                })
-                .catch((error) => {
-
-                    apiBody.innerHTML = "Api is not working or Please connect with the internet"
-                    console.log("Api is not working or Please connect with the internet");
-                })
+                    accept : "application/json"
+                }
+            });
+            const data = await res.json()
+            console.log(data.joke);
+            apiBody.innerHTML = data.joke
         }
 
         showNewJoke()
+
         document.getElementById("fetchJoke").addEventListener("click", showNewJoke)
     </script>
 </body>
