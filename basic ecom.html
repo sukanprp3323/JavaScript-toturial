@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creators Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #0077ff;
+      --bg: #f9fafe;
+      --text: #1a1a1a;
+      --accent: #00c897;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background-color: white;
+      padding: 20px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .section-title {
+      font-size: 2em;
+      color: var(--primary);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .services, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <header>
+    <h2>Creators</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Hello, I'm Sukan</h1>
+    <p>We create stunning websites that grow businesses.</p>
+    <a href="#contact"><button class="btn">Let's Work</button></a>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p style="text-align:center;">
+      I’m a passionate web developer building modern, responsive websites using HTML, CSS, JavaScript, and React.  
+      I work with a team of 3 under our startup "Creators".
+    </p>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">Services</h2>
+    <div class="services">
+      <div class="card">
+        <i class="fas fa-laptop-code fa-2x"></i>
+        <h3>Website Development</h3>
+        <p>Beautiful, responsive, and functional websites built with clean code.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-store fa-2x"></i>
+        <h3>E-Commerce Sites</h3>
+        <p>Custom product listings, checkout system, and payment integrations.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-search fa-2x"></i>
+        <h3>SEO Optimization</h3>
+        <p>Rank your website better on Google with clean, optimized code.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Doctor Booking Website</h3>
+        <p>MERN stack based doctor appointment system with e-ticket and chatbot.</p>
+      </div>
+      <div class="card">
+        <h3>Gradient Color Generator</h3>
+        <p>Generates dynamic gradients using HTML, CSS, JS. Live & interactive.</p>
+      </div>
+      <div class="card">
+        <h3>To-Do App</h3>
+        <p>Vanilla JavaScript based to-do list with local storage and animation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Creators | All Rights Reserved
+  </footer>
+
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("YOUR_EMAILJS_USER_ID");
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        .then(() => {
+          alert('Message sent successfully!');
+          this.reset();
+        }, (err) => {
+          alert('Failed to send message.\n' + JSON.stringify(err));
+        });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Weather APP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ <video autoplay muted loop id="bg-video">
+  <source src="images/BG video.mp4" type="video/mp4" />
+  Your browser does not support HTML5 video.
+</video>
+    <section class="container">
+        <!--? input field and search location -->
+
+        <div class="SearchBar">
+            <form class="weatherSearch">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="city_name" placeholder="Search Your City...">
+            </form>
+        </div>
+
+        <!--? Main weather data show container -->
+
+        <div class="weather_body">
+            <h1 class="City_Name"></h1>
+            <p class="weather_Date_time"></p>
+            <div class="weather_Details">
+                <p class="weather_info"></p>
+                <div class="weather_icon">
+                    <img src="images/cloudy-svgrepo-com (1).svg" alt="" srcset="">
+                </div>
+            </div>
+            <div class="weather_tempMain">
+                <p class="weather_temperature"></p>
+            </div>
+            <div class="weather_minmax">
+                <p class="weather_min"></p>
+                <p class="weather_max"></p>
+            </div>
+        </div>
+
+        <!--? Extra data Weather -->
+
+        <section class="weather_Extra">
+
+            <div class="weather_Card">
+                <i class="fa-solid fa-temperature-three-quarters"></i>
+                <div>
+                    <p>feels like</p>
+                    <p class="weather_feelslike"></p>
+                </div>
+            </div>
+
+            <div class="weather_Card">
+                <i class="fa-solid fa-droplet"></i>
+                <div>
+                    <p>Humidity</p>
+                    <p class="weather_feelslike"></p>
+                </div>
+            </div>
+
+            <div class="weather_Card">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <p>Wind</p>
+                    <p class="weather_feelslike"></p>
+                </div>
+            </div>
+
+            <div class="weather_Card">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <p>Pressure</p>
+                    <p class="weather_feelslike"></p>
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
